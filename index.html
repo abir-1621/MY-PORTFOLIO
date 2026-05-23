@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abir — UI/UX Engineer & Data Scientist. Portfolio showcasing design, software engineering, and data science projects.">
+    <title>Abir — UI/UX Engineer & Data Scientist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f0f0f',
+                        secondary: '#1a1a1a',
+                        accent: '#6366f1',
+                        'accent-light': '#818cf8',
+                        surface: '#fafafa',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'slide-in': 'slideIn 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .dark-glass {
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s;
+        }
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.15s, width 0.3s, height 0.3s;
+        }
+        .cursor-ring.hover {
+            width: 60px;
+            height: 60px;
+            border-color: rgba(99, 102, 241, 0.8);
+            background: rgba(99, 102, 241, 0.1);
+        }
+        .skill-bar {
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #6366f1;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+        }
+        .filter-btn.active {
+            background: #0f0f0f;
+            color: white;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mesh-gradient {
+            background:
+                radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-reveal,
+            .skill-bar,
+            .project-card img,
+            .blog-card,
+            .cursor-dot,
+            .cursor-ring {
+                transition: none !important;
+                animation: none !important;
+            }
+            #hero {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-primary antialiased selection:bg-accent selection:text-white overflow-x-hidden">
+
+    <div class="cursor-dot hidden lg:block" id="cursor-dot"></div>
+    <div class="cursor-ring hidden lg:block" id="cursor-ring"></div>
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#hero" class="font-display text-2xl font-bold tracking-tight hover:opacity-80 transition-opacity" aria-label="Home" data-logo>
+                    MA<span class="text-accent">.</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="nav-link text-sm font-medium hover:text-accent transition-colors">About</a>
+                    <a href="#skills" class="nav-link text-sm font-medium hover:text-accent transition-colors">Skills</a>
+                    <a href="#experience" class="nav-link text-sm font-medium hover:text-accent transition-colors">Experience</a>
+                    <a href="#projects" class="nav-link text-sm font-medium hover:text-accent transition-colors">Projects</a>
+                    <a href="#education" class="nav-link text-sm font-medium hover:text-accent transition-colors">Education</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-full hover:bg-accent transition-colors">
+                        Let's Talk
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-100">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#about" class="block py-2 text-sm font-medium">About</a>
+                <a href="#skills" class="block py-2 text-sm font-medium">Skills</a>
+                <a href="#experience" class="block py-2 text-sm font-medium">Experience</a>
+                <a href="#projects" class="block py-2 text-sm font-medium">Projects</a>
+                <a href="#education" class="block py-2 text-sm font-medium">Education</a>
+                <a href="#contact" class="block py-2 text-sm font-medium text-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center mesh-gradient overflow-hidden">
+        <div class="absolute inset-0 opacity-30" aria-hidden="true">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-gray-200 text-sm font-medium text-gray-600 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
+                    <span id="hero-badge">Open to working student & internship roles</span>
+                </div>
+                
+                <h1 id="hero-headline" class="font-display text-5xl md:text-7xl font-bold leading-tight">
+                    Building <span class="gradient-text">AI-powered software</span> for real-world business problems
+                </h1>
+                
+                <p id="hero-description" class="text-lg text-gray-600 max-w-lg leading-relaxed"></p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="group px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-accent transition-all duration-300 flex items-center gap-2">
+                        <span id="projects-btn-text">View Projects</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 border-2 border-primary/20 rounded-full font-medium hover:border-accent hover:text-accent transition-all duration-300">
+                        <span id="contact-btn-text">Contact Me</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-6 pt-4">
+                    <p id="hero-roles-text" class="text-sm text-gray-500 leading-relaxed"></p>
+                </div>
+            </div>
+
+            <div class="relative hidden lg:block">
+                <div class="relative w-full aspect-square max-w-lg mx-auto">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-purple-500/20 rounded-3xl rotate-6" aria-hidden="true"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-purple-500/20 rounded-3xl -rotate-3" aria-hidden="true"></div>
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-8 h-full flex flex-col justify-between border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex gap-2" aria-hidden="true">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="text-xs text-gray-400 font-mono">portfolio.html</div>
+                        </div>
+
+                        <div id="hero-code"></div>
+
+                        <div class="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-semibold">Current Focus</div>
+                                    <div class="text-xs text-gray-500">Machine Learning Interfaces</div>
+                                </div>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Current focus progress">
+                                <div class="bg-accent h-1.5 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400 hover:text-accent transition-colors" aria-label="Scroll to about section">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </a>
+    </section>
+
+    <section id="about" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-gray-100">
+                            <img id="profile-photo"
+                                 src="assets/profile.jpg"
+                                 alt="Md Abir — profile photo"
+                                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                                 loading="lazy"
+                                 width="800"
+                                 height="1000">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-xs">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div id="about-badge-stat" class="font-bold text-lg">2019</div>
+                                    <div id="about-badge-label" class="text-sm text-gray-500">Experience Since</div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600">Crafting digital products that users love and businesses trust.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal space-y-6">
+                    <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full">
+                        About Me
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
+                        Bridging design, code, and <span class="gradient-text">data intelligence</span>
+                    </h2>
+                    <p id="about-text" class="text-gray-600 text-lg leading-relaxed"></p>
+
+                    <div id="about-stats" class="grid grid-cols-2 gap-6 pt-6"></div>
+
+                    <div class="pt-8">
+                        <h3 class="font-display text-lg font-bold mb-4">Focus areas</h3>
+                        <div id="focus-areas" class="flex flex-wrap gap-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-32 bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
+                    Expertise
+                </div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    Skills that span the <span class="gradient-text">full stack</span>
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    From user research to neural networks, I bring a holistic approach to product development.
+                </p>
+            </div>
+
+            <div id="skills-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="scroll-reveal group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 hidden">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Creating intuitive, accessible, and visually stunning interfaces backed by thorough user research and testing.
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">Figma & Design Systems</span>
+                                <span class="text-gray-500">95%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full" style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">User Research</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">Prototyping</span>
+                                <span class="text-gray-500">92%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full" style="width: 0%" data-width="92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Software Engineering</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Building scalable, performant applications with modern frameworks and clean, maintainable code architecture.
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">React / Next.js / TypeScript</span>
+                                <span class="text-gray-500">94%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-accent to-indigo-600 rounded-full" style="width: 0%" data-width="94%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">Node.js / Python</span>
+                                <span class="text-gray-500">88%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-accent to-indigo-600 rounded-full" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">System Architecture</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-accent to-indigo-600 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-4">Data Science</h3>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Leveraging machine learning and statistical analysis to derive insights and build predictive models.
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">Python / Pandas / NumPy</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">Machine Learning</span>
+                                <span class="text-gray-500">82%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full" style="width: 0%" data-width="82%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium">Data Visualization</span>
+                                <span class="text-gray-500">88%</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">Experience</div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Startup & <span class="gradient-text">leadership</span></h2>
+                <p class="text-gray-600 text-lg">Building products and teams that solve real operational problems.</p>
+            </div>
+            <div id="experience-list" class="space-y-8 max-w-4xl mx-auto"></div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
+                    Portfolio
+                </div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    Selected <span class="gradient-text">works</span>
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    A curated collection of projects showcasing design thinking, engineering excellence, and data-driven solutions.
+                </p>
+            </div>
+
+            <div id="project-filters" class="flex flex-wrap justify-center gap-3 mb-12 scroll-reveal" role="tablist" aria-label="Project filters"></div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <article class="project-card scroll-reveal group cursor-pointer" data-category="uiux">
+                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop"
+                             alt="Nova Banking Dashboard"
+                             class="w-full h-full object-cover transition-transform duration-700"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-sm font-medium text-white">View Case Study</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs font-medium rounded-full">UI/UX</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">Fintech</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">Nova Banking Dashboard</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">A complete redesign of a digital banking experience, increasing user engagement by 40% through intuitive data visualization.</p>
+                    </div>
+                </article>
+
+                <article class="project-card scroll-reveal group cursor-pointer" data-category="engineering">
+                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop"
+                             alt="SyncFlow Engine"
+                             class="w-full h-full object-cover transition-transform duration-700"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-sm font-medium text-white">View on GitHub</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Engineering</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">Open Source</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">SyncFlow Engine</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Real-time collaborative editing engine built with CRDTs and WebRTC, powering seamless multi-user document editing.</p>
+                    </div>
+                </article>
+
+                <article class="project-card scroll-reveal group cursor-pointer" data-category="data">
+                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
+                             alt="Predicta Analytics"
+                             class="w-full h-full object-cover transition-transform duration-700"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-sm font-medium text-white">View Analysis</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Data Science</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">ML</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">Predicta Analytics</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Customer churn prediction model with 94% accuracy, featuring an interactive dashboard for business stakeholders.</p>
+                    </div>
+                </article>
+
+                <article class="project-card scroll-reveal group cursor-pointer" data-category="uiux engineering">
+                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop"
+                             alt="HealthTrack Mobile"
+                             class="w-full h-full object-cover transition-transform duration-700"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-sm font-medium text-white">View Case Study</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs font-medium rounded-full">UI/UX</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Engineering</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">HealthTrack Mobile</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">End-to-end design and development of a health monitoring app with real-time biometric integration.</p>
+                    </div>
+                </article>
+
+                <article class="project-card scroll-reveal group cursor-pointer" data-category="engineering">
+                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+                             alt="MarketHub Platform"
+                             class="w-full h-full object-cover transition-transform duration-700"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-sm font-medium text-white">Live Demo</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Engineering</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">E-commerce</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">MarketHub Platform</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Headless e-commerce solution with sub-second load times and advanced inventory management.</p>
+                    </div>
+                </article>
+
+                <article class="project-card scroll-reveal group cursor-pointer" data-category="data">
+                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
+                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop"
+                             alt="Sentiment AI"
+                             class="w-full h-full object-cover transition-transform duration-700"
+                             loading="lazy"
+                             width="800"
+                             height="600">
+                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-sm font-medium text-white">View Project</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Data Science</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">NLP</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">Sentiment AI</h3>
+                        <p class="text-gray-600 text-sm line-clamp-2">Real-time sentiment analysis pipeline processing 10k+ social media mentions daily for brand monitoring.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary rounded-full font-medium hover:bg-primary hover:text-white transition-all duration-300">
+                    Start a Project
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">Education</div>
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Academic <span class="gradient-text">journey</span></h2>
+                <p class="text-gray-600 text-lg">From computer science foundations to data science at FAU Erlangen-Nürnberg.</p>
+            </div>
+
+            <div id="education-grid" class="grid md:grid-cols-3 gap-8 mb-16"></div>
+
+            <div class="max-w-xl mx-auto scroll-reveal bg-surface rounded-2xl p-8 border border-gray-100">
+                <h3 class="font-display text-lg font-bold mb-4">Languages</h3>
+                <div id="languages-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" aria-hidden="true">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="scroll-reveal">
+                    <div class="inline-block px-4 py-1.5 bg-white/10 text-accent-light text-sm font-medium rounded-full mb-4">
+                        Get in Touch
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                        Let's build something <span class="gradient-text">extraordinary</span> together
+                    </h2>
+                    <p id="contact-cta" class="text-gray-400 text-lg mb-6 leading-relaxed"></p>
+                    <div id="target-roles" class="flex flex-wrap gap-2 mb-8"></div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Email</div>
+                                <a id="contact-email-link" href="mailto:abirkhan88821@gmail.com" class="font-medium hover:text-accent-light transition-colors"><span id="contact-email"></span></a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-400">Location</div>
+                                <div id="contact-location" class="font-medium"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a id="contact-github" href="https://github.com/developer-abir1" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="GitHub">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal">
+                    <form id="contact-form" class="space-y-6 bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10" action="#" method="post">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                                <input id="name" name="name" type="text" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white placeholder-gray-500" placeholder="Your name" autocomplete="name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                <input id="email" name="email" type="email" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white placeholder-gray-500" placeholder="you@example.com" autocomplete="email">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white">
+                                <option value="" class="text-primary">Select a topic</option>
+                                <option value="project" class="text-primary">Project Inquiry</option>
+                                <option value="collab" class="text-primary">Collaboration</option>
+                                <option value="consulting" class="text-primary">Consulting</option>
+                                <option value="other" class="text-primary">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white placeholder-gray-500 resize-none" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-accent hover:bg-accent-light text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2">
+                            Send Message
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                        <p class="text-xs text-gray-500 text-center">Wire up Formspree, Web3Forms, or your email API for production.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="font-display text-2xl font-bold text-white" data-logo>
+                MA<span class="text-accent">.</span>
+            </div>
+            <div id="footer-copy" class="text-gray-400 text-sm"></div>
+            <div class="flex gap-6 text-sm text-gray-400">
+                <a href="#hero" class="hover:text-white transition-colors">Back to top</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/portfolio-data.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
