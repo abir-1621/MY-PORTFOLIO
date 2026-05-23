@@ -184,4 +184,12 @@
     const githubLink = document.getElementById('contact-github');
     if (githubLink && data.github) githubLink.href = data.github;
 
+    const linkedinLink = document.getElementById('contact-linkedin');
+    if (linkedinLink && data.linkedin) linkedinLink.href = data.linkedin;
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm && data.email) {
+        contactForm.action = `https://formsubmit.co/${encodeURIComponent(data.email)}`;
+    }
+
 })();

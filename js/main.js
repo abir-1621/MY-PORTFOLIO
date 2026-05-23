@@ -10,6 +10,20 @@
     const hero = document.getElementById('hero');
     const contactForm = document.getElementById('contact-form');
 
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async () => {
+            const email = (window.portfolioData && window.portfolioData.email) || 'abirkhan88821@gmail.com';
+            try {
+                await navigator.clipboard.writeText(email);
+                copyEmailBtn.textContent = 'Copied!';
+                setTimeout(() => { copyEmailBtn.textContent = 'Copy email'; }, 2000);
+            } catch {
+                window.location.href = `mailto:${email}`;
+            }
+        });
+    }
+
     // Custom cursor (desktop only)
     if (!prefersReducedMotion && window.innerWidth > 1024 && cursorDot && cursorRing) {
         document.addEventListener('mousemove', (e) => {
@@ -139,22 +153,5 @@
         }, { passive: true });
     }
 
-    // Contact form — opens mailto until you add Formspree/Web3Forms
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value.trim();
-            const senderEmail = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value.trim();
-
-            const topic = subject ? `[${subject}] ` : '';
-            const body = encodeURIComponent(`From: ${name} <${senderEmail}>\n\n${message}`);
-            const mailSubject = encodeURIComponent(`${topic}Portfolio inquiry from ${name}`);
-
-            const recipient = (window.portfolioData && window.portfolioData.email) || 'abirkhan88821@gmail.com';
-            window.location.href = `mailto:${recipient}?subject=${mailSubject}&body=${body}`;
-        });
-    }
+    // Contact form submits via FormSubmit (configured in portfolio-data + render.js)
 })();

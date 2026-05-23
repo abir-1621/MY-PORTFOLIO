@@ -322,5 +322,6 @@ window.portfolioData = {
   contactButtonText: "Contact Me",
 
   availability: "Open to working student & internship roles",
-  github: "https://github.com/developer-abir1"
+  github: "https://github.com/abir-1621",
+  linkedin: "https://www.linkedin.com/in/i-am-md-abir/"
 };
