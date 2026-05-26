@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Article by Md Abir on product, AI, data engineering, automation, and business intelligence.">
+    <title>Article - Md Abir</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f0f0f',
+                        accent: '#6366f1',
+                        surface: '#fafafa',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .mesh-gradient {
+            background:
+                radial-gradient(at 30% 10%, rgba(99, 102, 241, 0.15) 0px, transparent 45%),
+                radial-gradient(at 80% 0%, rgba(168, 85, 247, 0.14) 0px, transparent 45%),
+                radial-gradient(at 10% 80%, rgba(236, 72, 153, 0.1) 0px, transparent 40%);
+        }
+    </style>
+</head>
+<body class="font-sans text-primary antialiased bg-white">
+    <header class="mesh-gradient border-b border-gray-100">
+        <nav class="max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+            <a href="index.html#writing" class="font-display text-2xl font-bold tracking-tight">MA<span class="text-accent">.</span></a>
+            <a href="index.html#writing" class="text-sm font-medium text-gray-600 hover:text-accent transition-colors">Back to writing</a>
+        </nav>
+
+        <div class="max-w-4xl mx-auto px-6 pt-16 pb-20">
+            <div id="article-meta" class="flex flex-wrap items-center gap-3 mb-6"></div>
+            <h1 id="article-title" class="font-display text-4xl md:text-6xl font-bold leading-tight max-w-3xl"></h1>
+            <p id="article-description" class="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl"></p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <article id="article-content" class="max-w-3xl text-lg leading-8 text-gray-700 space-y-7"></article>
+    </main>
+
+    <script src="js/portfolio-data.js"></script>
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('slug');
+            const articles = (window.portfolioData && window.portfolioData.articles) || [];
+            const article = articles.find((item) => item.slug === slug) || articles[0];
+
+            if (!article) {
+                document.getElementById('article-title').textContent = 'Article coming soon';
+                document.getElementById('article-description').textContent = 'Please check back later.';
+                return;
+            }
+
+            document.title = `${article.title} - Md Abir`;
+            document.querySelector('meta[name="description"]').content = article.description;
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-description').textContent = article.description;
+            document.getElementById('article-meta').innerHTML = [
+                `<span class="px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">${article.category}</span>`,
+                `<span class="text-sm text-gray-500">${article.readTime}</span>`,
+                `<span class="text-sm text-gray-500">${article.status}</span>`
+            ].join('');
+            document.getElementById('article-content').innerHTML = article.content
+                .map((paragraph) => `<p>${paragraph}</p>`)
+                .join('');
+        })();
+    </script>
+</body>
+</html>

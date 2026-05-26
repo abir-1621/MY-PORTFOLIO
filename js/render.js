@@ -31,32 +31,32 @@
         if (el) el.innerHTML = html;
     }
 
-    document.title = `${data.name} — ${data.shortHeadline}`;
+    document.title = `${data.name} - ${data.shortHeadline}`;
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.content = `${data.name} — ${data.title}. ${data.shortHeadline}`;
+    if (metaDesc) metaDesc.content = `${data.name} - ${data.title}. ${data.shortHeadline}`;
 
     document.querySelectorAll('[data-logo]').forEach((el) => {
         el.innerHTML = `${initials}<span class="text-accent">.</span>`;
     });
 
-    setText('footer-copy', `© ${new Date().getFullYear()} ${data.name}. Crafted with passion and precision.`);
+    setText('footer-copy', `(c) ${new Date().getFullYear()} ${data.name}. Crafted with passion and precision.`);
     setText('hero-badge', data.availability);
-    setHTML('hero-headline', 'Building <span class="gradient-text">AI-powered software</span> for real-world business problems');
+    setHTML('hero-headline', 'Engineering <span class="gradient-text">data and AI systems</span> for smarter financial decisions');
     setText('hero-description', data.heroDescription);
     setText('projects-btn-text', data.projectsButtonText);
     setText('contact-btn-text', data.contactButtonText);
-    setText('hero-roles-text', data.title.replace(/\s*\|\s*/g, ' · '));
+    setText('hero-roles-text', data.title.replace(/\s*\|\s*/g, ' / '));
 
     const profilePhoto = document.getElementById('profile-photo');
     if (profilePhoto && data.profileImage) {
         profilePhoto.src = data.profileImage;
-        profilePhoto.alt = `${data.name} — profile photo`;
+        profilePhoto.alt = `${data.name} profile photo`;
     }
 
     setHTML('hero-code', [
         '<div class="space-y-4 font-mono text-sm" aria-hidden="true">',
         '<div class="flex gap-4"><span class="text-gray-400 w-8">1</span><span><span class="text-purple-600">const</span> <span class="text-blue-600">builder</span> = {</span></div>',
-        '<div class="flex gap-4"><span class="text-gray-400 w-8">2</span><span class="pl-4"><span class="text-sky-600">focus</span>: [<span class="text-green-600">\'Data Science\'</span>, <span class="text-green-600">\'Flutter\'</span>, <span class="text-green-600">\'AI/ML\'</span>],</span></div>',
+        '<div class="flex gap-4"><span class="text-gray-400 w-8">2</span><span class="pl-4"><span class="text-sky-600">focus</span>: [<span class="text-green-600">\'Data Engineering\'</span>, <span class="text-green-600">\'LLMs\'</span>, <span class="text-green-600">\'ML Finance\'</span>],</span></div>',
         '<div class="flex gap-4"><span class="text-gray-400 w-8">3</span><span class="pl-4"><span class="text-sky-600">startup</span>: <span class="text-green-600">\'HiLinkz / RyoGas\'</span>,</span></div>',
         '<div class="flex gap-4"><span class="text-gray-400 w-8">4</span><span class="pl-4"><span class="text-sky-600">location</span>: <span class="text-green-600">\'Erlangen, DE\'</span></span></div>',
         '<div class="flex gap-4"><span class="text-gray-400 w-8">5</span><span>};</span></div>',
@@ -106,7 +106,7 @@
             </div>
             <p class="text-gray-600 leading-relaxed mb-6">${exp.description}</p>
             <ul class="space-y-2 mb-6">
-                ${exp.highlights.map((h) => `<li class="flex gap-3 text-sm text-gray-600"><span class="text-accent mt-1 shrink-0">▸</span><span>${h}</span></li>`).join('')}
+                ${exp.highlights.map((h) => `<li class="flex gap-3 text-sm text-gray-600"><span class="text-accent mt-1 shrink-0">></span><span>${h}</span></li>`).join('')}
             </ul>
             <div class="flex flex-wrap gap-2">
                 ${exp.technologies.map((tech) => `<span class="px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">${tech}</span>`).join('')}
@@ -152,6 +152,26 @@
             </div>
         </article>`;
     }).join(''));
+
+    if (Array.isArray(data.articles)) {
+        setHTML('writing-grid', data.articles.map((article, i) => `
+            <article class="blog-card scroll-reveal bg-surface rounded-2xl p-6 md:p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl"${i ? ` style="transition-delay: ${i * 80}ms"` : ''}>
+                <div class="flex flex-wrap items-center gap-3 mb-5">
+                    <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-medium rounded-full">${article.category}</span>
+                    <span class="text-xs text-gray-400">${article.readTime}</span>
+                    <span class="text-xs text-gray-400">${article.status}</span>
+                </div>
+                <a href="article.html?slug=${encodeURIComponent(article.slug)}" class="block group">
+                    <h3 class="font-display text-2xl font-bold mb-3 group-hover:text-accent transition-colors">${article.title}</h3>
+                </a>
+                <p class="text-gray-600 leading-relaxed mb-5">${article.description}</p>
+                <div class="flex flex-wrap items-center gap-2">
+                    ${article.topics.map((topic) => `<span class="px-3 py-1 bg-white border border-gray-100 text-xs text-gray-600 rounded-full">${topic}</span>`).join('')}
+                    <a href="article.html?slug=${encodeURIComponent(article.slug)}" class="ml-auto inline-flex items-center text-sm font-medium text-accent hover:text-primary transition-colors">Read article</a>
+                </div>
+            </article>
+        `).join(''));
+    }
 
     setHTML('education-grid', data.education.map((edu, i) => `
         <article class="scroll-reveal bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-xl"${i ? ` style="transition-delay: ${i * 100}ms"` : ''}>
