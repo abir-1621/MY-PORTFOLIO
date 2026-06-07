@@ -1,0 +1,15 @@
+<svg width="320" height="100" viewBox="0 0 320 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">RyoGas logo</title>
+  <desc id="desc">A flame icon and red RyoGas wordmark.</desc>
+  <rect width="320" height="100" rx="18" fill="white"/>
+  <path d="M45 12C53 30 75 42 75 65C75 82 62 94 45 94C27 94 14 82 14 64C14 47 29 37 35 22C39 31 45 36 51 40C54 31 52 22 45 12Z" fill="url(#flame)"/>
+  <path d="M45 46C51 55 61 61 61 72C61 81 54 88 45 88C35 88 28 81 28 71C28 63 36 57 39 50C41 55 44 58 48 60C50 55 49 50 45 46Z" fill="#FFE66D"/>
+  <text x="88" y="67" fill="#EF1C24" stroke="#B91C1C" stroke-width="1.5" font-family="Arial Black, Impact, Arial, sans-serif" font-size="42" font-style="italic" font-weight="900">RYOGAS</text>
+  <defs>
+    <linearGradient id="flame" x1="28" y1="15" x2="69" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB703"/>
+      <stop offset="0.45" stop-color="#FF5A00"/>
+      <stop offset="1" stop-color="#E11D48"/>
+    </linearGradient>
+  </defs>
+</svg>

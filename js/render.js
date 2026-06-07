@@ -11,6 +11,7 @@
         'AI/ML': 'bg-emerald-100 text-emerald-700',
         'Mobile App': 'bg-sky-100 text-sky-700',
         'UI/UX': 'bg-pink-100 text-pink-700',
+        'Finance SaaS': 'bg-teal-100 text-teal-700',
     };
 
     const skillIcons = {
@@ -116,7 +117,9 @@
 
     const filters = [
         { id: 'all', label: 'All Work' },
+        { id: 'finance', label: 'Finance' },
         { id: 'startup', label: 'Startup' },
+        { id: 'saas', label: 'SaaS' },
         { id: 'ai', label: 'AI/ML' },
         { id: 'mobile', label: 'Mobile' },
         { id: 'uiux', label: 'UI/UX' },
@@ -128,14 +131,21 @@
 
     setHTML('projects-grid', data.projects.map((project) => {
         const color = categoryColors[project.category] || 'bg-gray-100 text-gray-600';
+        const imageClass = project.logo
+            ? 'w-full h-full object-contain transition-transform duration-700 p-8 bg-white'
+            : 'w-full h-full object-cover transition-transform duration-700';
+        const projectTitle = project.link
+            ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">${project.title}</a>`
+            : project.title;
         return `
         <article class="project-card scroll-reveal group" data-category="${project.categorySlug}">
             <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
-                <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-700" loading="lazy" width="800" height="600">
+                <img src="${project.image}" alt="${project.title}" class="${imageClass}" loading="lazy" width="800" height="600">
                 <div class="project-overlay absolute inset-0 bg-primary/85 opacity-0 transition-opacity duration-300 flex items-end p-6">
                     <div class="text-white text-sm space-y-2">
                         <p class="font-medium">${project.role}</p>
                         ${project.featured ? '<span class="inline-block px-2 py-0.5 bg-white/20 rounded text-xs">Featured</span>' : ''}
+                        ${project.link ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="block underline underline-offset-4">Open project</a>` : ''}
                     </div>
                 </div>
             </div>
@@ -143,12 +153,13 @@
                 <div class="flex items-center gap-2 flex-wrap">
                     <span class="px-3 py-1 ${color} text-xs font-medium rounded-full">${project.category}</span>
                 </div>
-                <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">${project.title}</h3>
+                <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">${projectTitle}</h3>
                 <p class="text-sm text-gray-500">${project.subtitle}</p>
                 <p class="text-gray-600 text-sm line-clamp-3">${project.description}</p>
                 <div class="flex flex-wrap gap-1.5 pt-1">
                     ${project.technologies.slice(0, 4).map((t) => `<span class="px-2 py-0.5 bg-gray-100 text-gray-600 text-xs rounded">${t}</span>`).join('')}
                 </div>
+                ${project.link ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="inline-flex text-sm font-medium text-accent hover:text-primary transition-colors">View live project</a>` : ''}
             </div>
         </article>`;
     }).join(''));

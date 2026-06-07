@@ -45,8 +45,17 @@ vercel
 
 ```
 .
-├── index.html      # Main portfolio page
-├── vercel.json     # Vercel static site config
+├── index.html          # Main portfolio page
+├── article.html        # Article reader for writing cards
+├── js/
+│   ├── portfolio-data.js
+│   ├── render.js
+│   └── main.js
+├── assets/             # Profile image and project logos
+├── PROJECT_CONTEXT.md  # Quick context for future edits
+├── vercel.json
 ├── README.md
 └── .gitignore
 ```
+
+Before making portfolio content changes, read `PROJECT_CONTEXT.md` first.

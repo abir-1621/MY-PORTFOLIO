@@ -1,0 +1,14 @@
+<svg width="420" height="160" viewBox="0 0 420 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Friends and Fund logo</title>
+  <desc id="desc">A linked circular monogram and Friends and Fund wordmark.</desc>
+  <rect width="420" height="160" rx="28" fill="#F8FAFC"/>
+  <circle cx="74" cy="80" r="38" fill="#6366F1"/>
+  <circle cx="116" cy="80" r="38" fill="#14B8A6" fill-opacity="0.92"/>
+  <path d="M66 100V58h30v11H79v7h14v11H79v13H66Z" fill="white"/>
+  <path d="M108 100V58h30v11h-17v7h14v11h-14v13h-13Z" fill="white"/>
+  <path d="M156 56h19c14 0 23 8 23 21s-9 22-23 22h-19V56Zm18 31c7 0 11-4 11-10s-4-10-11-10h-5v20h5Z" fill="#0F172A"/>
+  <path d="M207 56h13v43h-13V56Z" fill="#0F172A"/>
+  <path d="M233 99V56h13l18 22V56h13v43h-11l-20-24v24h-13Z" fill="#0F172A"/>
+  <text x="156" y="124" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Friends &amp; Fund</text>
+  <text x="156" y="44" fill="#6366F1" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">PRIVATE SAVINGS PLATFORM</text>
+</svg>
