@@ -90,38 +90,6 @@ window.portfolioData = {
 
   projects: [
     {
-      title: "F&F - Friends and Fund",
-      subtitle: "Private Savings and Deposit Management Platform",
-      category: "Finance SaaS",
-      categorySlug: "finance saas data",
-      description:
-        "A private savings and deposit management platform built for trusted friend groups, with secure member access, role-based workflows, accurate financial records, and a clean admin/member dashboard experience.",
-      problem:
-        "Friend-based savings groups need a trustworthy way to manage members, shares, monthly deposits, receipts, approvals, reporting, and audit history without relying on scattered spreadsheets or chat messages.",
-      solution:
-        "Built a role-based Next.js platform with Supabase Auth, PostgreSQL, Row Level Security, server-calculated deposit amounts, receipt uploads, admin approval workflows, audit logs, and monthly reporting.",
-      impact: [
-        "Centralized member accounts, shares, monthly deposits, and receipts in one dashboard.",
-        "Improved financial record accuracy through server-calculated deposit amounts and approval workflows.",
-        "Strengthened trust and transparency with role-based access, audit logs, and monthly reporting."
-      ],
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Supabase Auth",
-        "PostgreSQL",
-        "Row Level Security",
-        "Financial Workflows",
-        "Audit Logs"
-      ],
-      role: "Full Stack Product Builder",
-      featured: true,
-      link: "https://personal-finance-tau-five.vercel.app/dashboard",
-      logo: "assets/friends-fund-logo.svg",
-      image: "assets/friends-fund-logo.svg"
-    },
-    {
       title: "RyoGas",
       subtitle: "Fuel Station Sales Automation Platform",
       category: "Startup Product",
@@ -234,6 +202,38 @@ window.portfolioData = {
       role: "UI/UX Designer / Developer",
       featured: false,
       image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&h=600&fit=crop"
+    },
+    {
+      title: "F&F - Friends and Fund",
+      subtitle: "Private Savings and Deposit Management Platform",
+      category: "Finance SaaS",
+      categorySlug: "finance saas data",
+      description:
+        "A private savings and deposit management platform built for trusted friend groups, with secure member access, role-based workflows, accurate financial records, and a clean admin/member dashboard experience.",
+      problem:
+        "Friend-based savings groups need a trustworthy way to manage members, shares, monthly deposits, receipts, approvals, reporting, and audit history without relying on scattered spreadsheets or chat messages.",
+      solution:
+        "Built a role-based Next.js platform with Supabase Auth, PostgreSQL, Row Level Security, server-calculated deposit amounts, receipt uploads, admin approval workflows, audit logs, and monthly reporting.",
+      impact: [
+        "Centralized member accounts, shares, monthly deposits, and receipts in one dashboard.",
+        "Improved financial record accuracy through server-calculated deposit amounts and approval workflows.",
+        "Strengthened trust and transparency with role-based access, audit logs, and monthly reporting."
+      ],
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase Auth",
+        "PostgreSQL",
+        "Row Level Security",
+        "Financial Workflows",
+        "Audit Logs"
+      ],
+      role: "Full Stack Product Builder",
+      featured: true,
+      link: "https://personal-finance-tau-five.vercel.app/dashboard",
+      logo: "assets/friends-fund-logo.svg",
+      image: "assets/friends-fund-logo.svg"
     }
   ],
 
