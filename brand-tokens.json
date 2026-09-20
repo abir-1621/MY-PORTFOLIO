@@ -1,0 +1,74 @@
+{
+  "brand": {
+    "name": "Md Abir",
+    "initials": "MA",
+    "idea": "Operational clarity",
+    "primaryDescriptor": "AI Automation Engineer",
+    "supportingDescriptors": [
+      "Data and AI Engineer",
+      "Product Builder",
+      "M.Sc. Data Science student"
+    ]
+  },
+  "colors": {
+    "ink": "#11130F",
+    "inkSoft": "#30342E",
+    "paper": "#F1F0E9",
+    "paperBright": "#FAF9F4",
+    "paperCool": "#DDE1D8",
+    "line": "#CDCFC5",
+    "muted": "#5F645B",
+    "acid": "#CAFF3E",
+    "orange": "#FF7145",
+    "white": "#FFFFFF"
+  },
+  "typography": {
+    "primary": {
+      "family": "Manrope",
+      "weights": [400, 500, 600, 700, 800],
+      "fallback": "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    },
+    "technical": {
+      "family": "DM Mono",
+      "weights": [400, 500],
+      "fallback": "ui-monospace, SFMono-Regular, Consolas, monospace"
+    }
+  },
+  "radii": {
+    "small": 14,
+    "medium": 24,
+    "large": 36,
+    "pill": 999
+  },
+  "shadow": "0 28px 70px rgba(26, 30, 21, 0.12)",
+  "layout": {
+    "maxContentWidth": 1180,
+    "preferredHeroRatio": "60/40",
+    "safeAreaPercent": 7
+  },
+  "socialCanvases": {
+    "openGraph": { "width": 1200, "height": 630 },
+    "portraitPost": { "width": 1080, "height": 1350 },
+    "squarePost": { "width": 1080, "height": 1080 },
+    "linkedinCover": { "width": 1584, "height": 396 }
+  },
+  "wordmark": {
+    "text": "MA",
+    "preferredTextColor": "#11130F",
+    "preferredDotColor": "#FF7145",
+    "reverseTextColor": "#FFFFFF"
+  },
+  "rules": {
+    "maxFontFamilies": 2,
+    "maxAccentSharePercent": 10,
+    "defaultSocialCanvas": "portraitPost",
+    "avoid": [
+      "generic AI brain imagery",
+      "humanoid robots",
+      "neon glows",
+      "decorative fake code",
+      "unverified claims",
+      "mixing personal and employer branding"
+    ]
+  }
+}

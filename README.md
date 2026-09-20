@@ -1,61 +1,64 @@
-# Portfolio
+# Md Abir — Portfolio
 
-A modern, single-page portfolio built with HTML, Tailwind CSS, and vanilla JavaScript. Optimized for static hosting on [Vercel](https://vercel.com).
+A responsive, accessible portfolio for a data and AI engineer and product builder. The site uses semantic HTML, custom CSS, and vanilla JavaScript, with no build step or framework dependency.
 
 ## Local preview
 
-Open `index.html` in your browser, or run a simple server:
+Run a static server from the repository root:
 
 ```bash
-npx serve .
+python3 -m http.server 4173
 ```
 
-## Customize your content
+Then open `http://localhost:4173`.
 
-Edit `index.html` and search for these sections to update:
-
-| Section | What to change |
-|---------|----------------|
-| `<title>` & meta | Your name and role |
-| Nav logo `AB.` | Your initials |
-| Hero | Headline, bio, availability badge |
-| About | Photo URL, stats, story |
-| Skills | Skill bars and categories |
-| Projects | Cards, images, links, `data-category` filters |
-| Blog | Articles (or remove section) |
-| Contact | Email, location, social links, form action |
-
-Replace Unsplash placeholder images with your own photos (e.g. in an `/assets` folder).
-
-## Deploy to Vercel
-
-1. Push this folder to GitHub (or GitLab/Bitbucket).
-2. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
-3. Vercel auto-detects a static site — no build command needed.
-4. Click **Deploy**.
-
-Alternatively, with the [Vercel CLI](https://vercel.com/docs/cli):
-
-```bash
-npm i -g vercel
-vercel
-```
+Project links use the `.html` paths so they also work with Python's basic local server. Vercel's `cleanUrls` setting redirects these to the extension-free canonical URLs in production.
 
 ## Project structure
 
-```
+```text
 .
-├── index.html          # Main portfolio page
-├── article.html        # Article reader for writing cards
+├── index.html              # Main portfolio
+├── article.html            # Article reader retained for future publishing
+├── work/
+│   ├── ryogas.html         # RyoGas case study
+│   └── friends-and-fund.html
+├── css/
+│   └── styles.css          # Design system and responsive layouts
 ├── js/
-│   ├── portfolio-data.js
-│   ├── render.js
-│   └── main.js
-├── assets/             # Profile image and project logos
-├── PROJECT_CONTEXT.md  # Quick context for future edits
-├── vercel.json
-├── README.md
-└── .gitignore
+│   ├── portfolio-data.js   # Article and project source data
+│   ├── render.js           # Retained content-rendering helper
+│   └── main.js             # Navigation and reveal behavior
+├── assets/                 # Profile image, logos, and favicon
+├── BRAND_GUIDELINES.md     # Personal visual and writing system
+├── brand-tokens.json       # Machine-readable brand tokens
+├── AGENTS.md               # Instructions for AI and coding agents
+├── robots.txt              # Crawler access and sitemap location
+├── sitemap.xml             # Canonical indexable URLs
+├── llms.txt                # Experimental machine-readable site summary
+└── vercel.json             # Static Vercel configuration
 ```
 
-Before making portfolio content changes, read `PROJECT_CONTEXT.md` first.
+## Content updates
+
+The homepage content is written directly in `index.html` so search engines, accessibility tools, and browsers without JavaScript receive the complete page. Keep `js/portfolio-data.js` aligned when the same project facts are used by the article reader or future tooling.
+
+Each shipped project has a static page in `work/`. When adding an indexable page, give it a unique title, description, canonical URL, one H1, accurate JSON-LD, and a standard HTML link from an existing page. Add the canonical URL to `sitemap.xml` with an honest modification date.
+
+`article.html` is currently `noindex` because its content and metadata are selected in the browser from a query parameter. Publish finished articles as static pages before adding them to the sitemap.
+
+## Verification
+
+Run JavaScript syntax checks after editing:
+
+```bash
+node --check js/portfolio-data.js
+node --check js/render.js
+node --check js/main.js
+```
+
+Also validate `sitemap.xml`, `vercel.json`, local links, and embedded JSON-LD after SEO changes. Preview the homepage and both case studies at desktop and mobile widths before deployment.
+
+After deployment, verify the canonical domain in Google Search Console and Bing Webmaster Tools, submit `sitemap.xml`, and inspect each URL. `llms.txt` is supplemental and is not a substitute for crawlable pages, original content, or reputable links.
+
+The site is ready for static deployment on Vercel. No build command is required.

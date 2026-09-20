@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abirkhan.pro.bd/sitemap.xml

@@ -1,794 +1,359 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Md Abir - Data Science Master's student in Erlangen focused on AI/Data Engineering, LLMs, deep learning, ML in finance, automation, and business intelligence.">
-    <title>Md Abir - AI/Data Engineering & ML in Finance</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10130f">
+    <meta name="description" content="Md Abir is a data and AI engineer in Erlangen, Germany, building data pipelines, LLM applications, and operational software. Explore selected work.">
+    <meta name="author" content="Md Abir">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Md Abir">
+    <meta property="og:title" content="Md Abir | Data &amp; AI Engineer in Erlangen">
+    <meta property="og:description" content="Data pipelines, LLM applications, and operational software built around real business problems.">
+    <meta property="og:url" content="https://abirkhan.pro.bd/">
+    <meta property="og:image" content="https://abirkhan.pro.bd/assets/profile.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="920">
+    <meta property="og:image:height" content="1152">
+    <meta property="og:image:alt" content="Portrait of Md Abir, data and AI engineer">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Md Abir | Data &amp; AI Engineer in Erlangen">
+    <meta name="twitter:description" content="Data pipelines, LLM applications, and operational software built around real business problems.">
+    <meta name="twitter:image" content="https://abirkhan.pro.bd/assets/profile.png">
+    <meta name="twitter:image:alt" content="Portrait of Md Abir, data and AI engineer">
+    <link rel="canonical" href="https://abirkhan.pro.bd/">
+    <link rel="alternate" hreflang="en" href="https://abirkhan.pro.bd/">
+    <link rel="alternate" hreflang="x-default" href="https://abirkhan.pro.bd/">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="me" href="https://github.com/abir-1621">
+    <link rel="me" href="https://www.linkedin.com/in/i-am-md-abir/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#0f0f0f',
-                        secondary: '#1a1a1a',
-                        accent: '#6366f1',
-                        'accent-light': '#818cf8',
-                        surface: '#fafafa',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-up': 'fadeUp 0.8s ease-out forwards',
-                        'slide-in': 'slideIn 0.6s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        fadeUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        slideIn: {
-                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        }
-                    }
-                }
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Md Abir | Data &amp; AI Engineer in Erlangen</title>
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://abirkhan.pro.bd/#website",
+                "url": "https://abirkhan.pro.bd/",
+                "name": "Md Abir",
+                "alternateName": "Md Abir Portfolio",
+                "inLanguage": "en",
+                "publisher": {"@id": "https://abirkhan.pro.bd/#person"}
+            },
+            {
+                "@type": "ProfilePage",
+                "@id": "https://abirkhan.pro.bd/#webpage",
+                "url": "https://abirkhan.pro.bd/",
+                "name": "Md Abir | Data & AI Engineer in Erlangen",
+                "description": "Portfolio of Md Abir, a data and AI engineer building data pipelines, LLM applications, and operational software.",
+                "inLanguage": "en",
+                "isPartOf": {"@id": "https://abirkhan.pro.bd/#website"},
+                "about": {"@id": "https://abirkhan.pro.bd/#person"},
+                "mainEntity": {"@id": "https://abirkhan.pro.bd/#person"},
+                "primaryImageOfPage": {"@id": "https://abirkhan.pro.bd/#profile-image"},
+                "dateModified": "2026-09-16"
+            },
+            {
+                "@type": "ImageObject",
+                "@id": "https://abirkhan.pro.bd/#profile-image",
+                "url": "https://abirkhan.pro.bd/assets/profile.png",
+                "contentUrl": "https://abirkhan.pro.bd/assets/profile.png",
+                "width": 920,
+                "height": 1152,
+                "caption": "Md Abir"
+            },
+            {
+                "@type": "Person",
+                "@id": "https://abirkhan.pro.bd/#person",
+                "name": "Md Abir",
+                "url": "https://abirkhan.pro.bd/",
+                "image": {"@id": "https://abirkhan.pro.bd/#profile-image"},
+                "jobTitle": ["AI Automation Engineer", "Co-Founder and CEO"],
+                "description": "AI automation engineer at Hasso Plattner Foundation, product builder, and M.Sc. Data Science student at FAU Erlangen-Nuremberg.",
+                "homeLocation": {
+                    "@type": "Place",
+                    "name": "Erlangen, Germany"
+                },
+                "affiliation": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Friedrich-Alexander-Universitat Erlangen-Nuremberg",
+                    "sameAs": "https://www.fau.eu/"
+                },
+                "worksFor": [
+                    {"@type": "Organization", "name": "Hasso Plattner Foundation"},
+                    {"@type": "Organization", "name": "HiLinkz Ltd"}
+                ],
+                "alumniOf": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "North South University",
+                    "sameAs": "https://www.northsouth.edu/"
+                },
+                "knowsAbout": [
+                    "Data engineering",
+                    "Applied artificial intelligence",
+                    "Large language model applications",
+                    "Machine learning",
+                    "Financial technology",
+                    "Workflow automation",
+                    "Product engineering"
+                ],
+                "sameAs": [
+                    "https://github.com/abir-1621",
+                    "https://www.linkedin.com/in/i-am-md-abir/"
+                ]
             }
-        }
+        ]
+    }
     </script>
-    <style>
-        .gradient-text {
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .dark-glass {
-            background: rgba(15, 15, 15, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-        .project-card:hover img {
-            transform: scale(1.05);
-        }
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background: #6366f1;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s;
-        }
-        .cursor-ring {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(99, 102, 241, 0.5);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: transform 0.15s, width 0.3s, height 0.3s;
-        }
-        .cursor-ring.hover {
-            width: 60px;
-            height: 60px;
-            border-color: rgba(99, 102, 241, 0.8);
-            background: rgba(99, 102, 241, 0.1);
-        }
-        .skill-bar {
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #6366f1;
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .blog-card:hover {
-            transform: translateY(-8px);
-        }
-        .filter-btn.active {
-            background: #0f0f0f;
-            color: white;
-        }
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .mesh-gradient {
-            background:
-                radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 50%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
-                radial-gradient(at 80% 50%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .scroll-reveal,
-            .skill-bar,
-            .project-card img,
-            .blog-card,
-            .cursor-dot,
-            .cursor-ring {
-                transition: none !important;
-                animation: none !important;
-            }
-            #hero {
-                transform: none !important;
-            }
-        }
-    </style>
 </head>
-<body class="font-sans text-primary antialiased selection:bg-accent selection:text-white overflow-x-hidden">
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <div class="cursor-dot hidden lg:block" id="cursor-dot"></div>
-    <div class="cursor-ring hidden lg:block" id="cursor-ring"></div>
-
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="#hero" class="font-display text-2xl font-bold tracking-tight hover:opacity-80 transition-opacity" aria-label="Home" data-logo>
-                    MA<span class="text-accent">.</span>
-                </a>
-
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#about" class="nav-link text-sm font-medium hover:text-accent transition-colors">About</a>
-                    <a href="#skills" class="nav-link text-sm font-medium hover:text-accent transition-colors">Skills</a>
-                    <a href="#experience" class="nav-link text-sm font-medium hover:text-accent transition-colors">Experience</a>
-                    <a href="#projects" class="nav-link text-sm font-medium hover:text-accent transition-colors">Projects</a>
-                    <a href="#writing" class="nav-link text-sm font-medium hover:text-accent transition-colors">Writing</a>
-                    <a href="#education" class="nav-link text-sm font-medium hover:text-accent transition-colors">Education</a>
-                    <a href="#contact" class="px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-full hover:bg-accent transition-colors">
-                        Let's Talk
-                    </a>
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
+    <header class="site-header" id="site-header">
+        <div class="shell nav-shell">
+            <a class="wordmark" href="#top" aria-label="Md Abir, home"><span>MA</span><i aria-hidden="true"></i></a>
+            <nav class="desktop-nav" aria-label="Main navigation">
+                <a href="#work">Work</a><a href="#experience">Experience</a><a href="#profile">Profile</a><a href="#contact">Contact</a>
+            </nav>
+            <a class="nav-cta" href="mailto:abirkhan88821@gmail.com"><span class="status-dot" aria-hidden="true"></span>Available for roles</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button>
         </div>
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+            <a href="#work">Work</a><a href="#experience">Experience</a><a href="#profile">Profile</a><a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-100">
-            <div class="px-6 py-4 space-y-3">
-                <a href="#about" class="block py-2 text-sm font-medium">About</a>
-                <a href="#skills" class="block py-2 text-sm font-medium">Skills</a>
-                <a href="#experience" class="block py-2 text-sm font-medium">Experience</a>
-                <a href="#projects" class="block py-2 text-sm font-medium">Projects</a>
-                <a href="#writing" class="block py-2 text-sm font-medium">Writing</a>
-                <a href="#education" class="block py-2 text-sm font-medium">Education</a>
-                <a href="#contact" class="block py-2 text-sm font-medium text-accent">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <section id="hero" class="relative min-h-screen flex items-center justify-center mesh-gradient overflow-hidden">
-        <div class="absolute inset-0 opacity-30" aria-hidden="true">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-gray-200 text-sm font-medium text-gray-600 shadow-sm">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
-                    <span id="hero-badge">Open to working student & internship roles</span>
-                </div>
-                
-                <h1 id="hero-headline" class="font-display text-5xl md:text-7xl font-bold leading-tight">
-                    Engineering <span class="gradient-text">data and AI systems</span> for smarter financial decisions
-                </h1>
-                
-                <p id="hero-description" class="text-lg text-gray-600 max-w-lg leading-relaxed"></p>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="group px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-accent transition-all duration-300 flex items-center gap-2">
-                        <span id="projects-btn-text">View Projects</span>
-                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                    <a href="#contact" class="px-8 py-4 border-2 border-primary/20 rounded-full font-medium hover:border-accent hover:text-accent transition-all duration-300">
-                        <span id="contact-btn-text">Contact Me</span>
-                    </a>
-                </div>
-
-                <div class="flex items-center gap-6 pt-4">
-                    <p id="hero-roles-text" class="text-sm text-gray-500 leading-relaxed"></p>
+    <main id="main-content">
+        <section class="hero shell" id="top" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow reveal">Md Abir · Data &amp; AI engineer · Erlangen, Germany</p>
+                <h1 id="hero-title" class="reveal">I turn operational data into products people can <em>rely on.</em></h1>
+                <p class="hero-intro reveal" id="hero-description">I build data systems, AI applications, and software for real business workflows. My work combines engineering depth with the product judgment I developed as a startup co-founder.</p>
+                <div class="hero-actions reveal">
+                    <a class="button button-primary" href="#work">See selected work<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+                    <a class="text-link" href="mailto:abirkhan88821@gmail.com">abirkhan88821@gmail.com</a>
                 </div>
             </div>
 
-            <div class="relative hidden lg:block">
-                <div class="relative w-full aspect-square max-w-lg mx-auto">
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-purple-500/20 rounded-3xl rotate-6" aria-hidden="true"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-purple-500/20 rounded-3xl -rotate-3" aria-hidden="true"></div>
-                    <div class="relative bg-white rounded-3xl shadow-2xl p-8 h-full flex flex-col justify-between border border-gray-100">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="flex gap-2" aria-hidden="true">
-                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                            </div>
-                            <div class="text-xs text-gray-400 font-mono">portfolio.html</div>
-                        </div>
+            <aside class="hero-proof reveal" aria-label="Proof of work">
+                <div class="proof-topline"><span>Proof of work</span><span class="live-label"><i aria-hidden="true"></i>Current</span></div>
+                <div class="proof-statement"><span class="proof-index">01</span><p>Co-founded a software company and took its core product from field problem to working platform.</p></div>
+                <div class="signal-grid">
+                    <div><strong>30%</strong><span>less user training after redesigning mobile workflows</span></div>
+                    <div><strong>3 → 7+</strong><span>team growth while leading product and engineering</span></div>
+                    <div><strong>Offline-first</strong><span>operations designed for low-connectivity environments</span></div>
+                </div>
+                <div class="proof-footer"><span>Currently</span><b>AI Automation at HPF · M.Sc. Data Science at FAU</b></div>
+            </aside>
 
-                        <div id="hero-code"></div>
+            <div class="hero-meta reveal" aria-label="Professional focus">
+                <span>Data engineering</span><span>Applied AI</span><span>Product systems</span><span>Financial technology</span>
+            </div>
+        </section>
 
-                        <div class="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="text-xs font-semibold">Current Focus</div>
-                                    <div class="text-xs text-gray-500">AI/Data Engineering & LLMs</div>
-                                </div>
+        <section class="work section-pad" id="work" aria-labelledby="work-title">
+            <div class="shell">
+                <div class="section-heading reveal">
+                    <div><p class="section-number">01 / Selected work</p><h2 id="work-title">Products built around real constraints.</h2></div>
+                    <p>Two shipped products that show how I think about operations, trust, usability, and technical delivery.</p>
+                </div>
+                <div class="projects-list" id="projects-grid">
+                    <article class="project-card reveal">
+                        <div class="project-visual">
+                            <span class="project-number">01</span>
+                            <span class="project-status">Shipped product</span>
+                            <img src="assets/ryogas-logo.svg" alt="RyoGas logo" width="320" height="100" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <p class="project-kicker">Lead Developer / Co-Founder · Startup Product</p>
+                            <h3>RyoGas</h3>
+                            <p class="project-subtitle">Fuel Station Sales Automation Platform</p>
+                            <p class="project-description">A fuel industry automation platform designed to digitize sales tracking, reporting, and operational workflows for gas stations in Bangladesh.</p>
+                            <div class="project-impact">
+                                <div><span>Outcome</span><strong>Reduced user training time by 30% through simpler mobile workflows.</strong></div>
+                                <div><span>System choice</span><strong>Enabled uninterrupted operations in low-connectivity environments.</strong></div>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-1.5" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Current focus progress">
-                                <div class="bg-accent h-1.5 rounded-full" style="width: 78%"></div>
+                            <div class="tech-list"><span>Flutter</span><span>Dart</span><span>Java</span><span>Firebase</span><span>Android</span><span>iOS</span></div>
+                            <div class="project-links">
+                                <a class="project-link" href="work/ryogas.html" aria-label="Read the RyoGas case study">Read case study <span aria-hidden="true">→</span></a>
+                                <a class="project-link project-link-secondary" href="https://www.ryogas.com/" target="_blank" rel="noopener noreferrer" aria-label="Open the RyoGas website">Live product <span aria-hidden="true">↗</span></a>
                             </div>
                         </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-visual">
+                            <span class="project-number">02</span>
+                            <span class="project-status">Shipped product</span>
+                            <img src="assets/friends-fund-logo.svg" alt="Friends and Fund logo" width="420" height="160" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <p class="project-kicker">Full Stack Product Builder · Finance SaaS</p>
+                            <h3>F&amp;F - Friends and Fund</h3>
+                            <p class="project-subtitle">Private Savings and Deposit Management Platform</p>
+                            <p class="project-description">A private savings and deposit management platform built for trusted friend groups, with secure member access, role-based workflows, accurate financial records, and clear admin and member dashboards.</p>
+                            <div class="project-impact">
+                                <div><span>Outcome</span><strong>Centralized member accounts, shares, monthly deposits, and receipts in one dashboard.</strong></div>
+                                <div><span>System choice</span><strong>Used server-calculated amounts, approvals, and audit logs to improve record accuracy.</strong></div>
+                            </div>
+                            <div class="tech-list"><span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase Auth</span><span>PostgreSQL</span><span>Row Level Security</span></div>
+                            <div class="project-links">
+                                <a class="project-link" href="work/friends-and-fund.html" aria-label="Read the Friends and Fund case study">Read case study <span aria-hidden="true">→</span></a>
+                                <a class="project-link project-link-secondary" href="https://personal-finance-tau-five.vercel.app/dashboard" target="_blank" rel="noopener noreferrer" aria-label="Open the Friends and Fund application">Live product <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience section-pad" id="experience" aria-labelledby="experience-title">
+            <div class="shell experience-grid">
+                <div class="experience-intro reveal">
+                    <p class="section-number">02 / Experience</p>
+                    <h2 id="experience-title">Engineering across automation, products, and teams.</h2>
+                    <p>I currently work at Hasso Plattner Foundation as a Working Student, AI Automation Engineer, developing digital solutions and automation for manual operational processes. My path from lead developer to co-founder and CEO at HiLinkz shaped how I connect technical choices to users, operations, and business outcomes.</p>
+                </div>
+                <div class="timeline" id="experience-list">
+                    <article class="timeline-item reveal">
+                        <div class="timeline-meta"><span>Aug 1 – Present</span><span>Hasso Plattner Foundation</span></div>
+                        <h3>Working Student, AI Automation Engineer</h3>
+                        <p class="timeline-company">Hasso Plattner Foundation</p>
+                        <p class="timeline-description">I develop digital solutions and automation for manual operational processes.</p>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div class="timeline-meta"><span>Dec 2019</span><span>Dhaka, Bangladesh</span></div>
+                        <h3>Co-Founder &amp; CEO</h3>
+                        <p class="timeline-company">HiLinkz Ltd · Promoted from Lead Developer</p>
+                        <p class="timeline-description">Co-founded a technology startup focused on Bangladesh's fuel industry and led the development of RyoGas, a mobile-first platform for automating gas station sales tracking and operational reporting.</p>
+                        <ul class="timeline-highlights">
+                            <li>Built cross-platform mobile applications using Java, Flutter, Dart, and Firebase.</li>
+                            <li>Mapped manual fuel station workflows into structured digital processes for sales, reporting, and operational visibility.</li>
+                            <li>Designed intuitive UI/UX that reduced user training time by 30%.</li>
+                            <li>Implemented offline-first architecture for uninterrupted operations in low-connectivity areas.</li>
+                            <li>Expanded the team from 3 to 7+ employees while maintaining strong employee retention.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="capabilities section-pad" aria-labelledby="capabilities-title">
+            <div class="shell">
+                <div class="section-heading compact reveal">
+                    <div><p class="section-number">03 / Capabilities</p><h2 id="capabilities-title">The useful intersection.</h2></div>
+                    <p>I work best where software, data, and a concrete operating problem meet.</p>
+                </div>
+                <div class="capability-grid" id="skills-grid">
+                    <article class="capability-card reveal">
+                        <span class="capability-index">01</span>
+                        <h3>Data engineering &amp; applied AI</h3>
+                        <p>Data pipelines, analytical models, and AI applications designed around a clear decision or workflow.</p>
+                        <div class="capability-list"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>ETL Pipelines</span><span>Machine Learning</span><span>LLMs &amp; RAG</span><span>Pandas</span><span>Power BI</span></div>
+                    </article>
+                    <article class="capability-card reveal">
+                        <span class="capability-index">02</span>
+                        <h3>Product engineering</h3>
+                        <p>Web and mobile products built with attention to reliability, access control, usability, and delivery.</p>
+                        <div class="capability-list"><span>JavaScript</span><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Next.js</span><span>TypeScript</span><span>REST APIs</span><span>Git</span></div>
+                    </article>
+                    <article class="capability-card reveal">
+                        <span class="capability-index">03</span>
+                        <h3>Automation &amp; product practice</h3>
+                        <p>Workflow mapping and automation informed by direct experience with users, teams, and business operations.</p>
+                        <div class="capability-list"><span>n8n</span><span>Zapier</span><span>Webhooks</span><span>Product Discovery</span><span>Dashboard UX</span><span>Figma</span><span>Team Leadership</span><span>Stakeholder Communication</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile section-pad" id="profile" aria-labelledby="profile-title">
+            <div class="shell profile-grid">
+                <div class="portrait reveal">
+                    <div class="portrait-frame"><img id="profile-photo" src="assets/profile.webp" alt="Md Abir" width="920" height="1152" loading="lazy"></div>
+                    <div class="portrait-note"><span>Based in</span><strong>Erlangen, Germany</strong></div>
+                </div>
+                <div class="profile-copy reveal">
+                    <p class="section-number">04 / Profile</p>
+                    <h2 id="profile-title">Engineer by training. Product builder by practice.</h2>
+                    <p id="about-text">I work at Hasso Plattner Foundation as a Working Student, AI Automation Engineer, developing digital solutions and automation for manual operational processes while pursuing an M.Sc. in Data Science at FAU Erlangen-Nuremberg. Co-founding HiLinkz taught me to begin with the operational reality, speak with users, and ship systems that keep working outside ideal conditions.</p>
+                    <p>My current focus is data engineering and applied AI, with particular interest in financial systems, LLM applications, automation, and decision support.</p>
+                    <div class="profile-facts">
+                        <div><span>Education</span><strong>M.Sc. Data Science, FAU</strong></div>
+                        <div><span>Earlier degree</span><strong>B.Sc. Computer Science, NSU</strong></div>
+                        <div><span>Languages</span><strong>Bengali, English, German A1</strong></div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/abir-1621" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                        <a href="https://www.linkedin.com/in/i-am-md-abir/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400 hover:text-accent transition-colors" aria-label="Scroll to about section">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
-        </a>
-    </section>
-
-    <section id="about" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="scroll-reveal">
-                    <div class="relative">
-                        <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-gray-100">
-                            <img id="profile-photo"
-                                 src="assets/profile.jpg"
-                                 alt="Md Abir profile photo"
-                                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-                                 loading="lazy"
-                                 width="800"
-                                 height="1000">
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-xs">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div id="about-badge-stat" class="font-bold text-lg">2019</div>
-                                    <div id="about-badge-label" class="text-sm text-gray-500">Experience Since</div>
-                                </div>
-                            </div>
-                            <p class="text-sm text-gray-600">Crafting digital products that users love and businesses trust.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="scroll-reveal space-y-6">
-                    <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full">
-                        About Me
-                    </div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">
-                        Bridging design, code, and <span class="gradient-text">data intelligence</span>
-                    </h2>
-                    <p id="about-text" class="text-gray-600 text-lg leading-relaxed"></p>
-
-                    <div id="about-stats" class="grid grid-cols-2 gap-6 pt-6"></div>
-
-                    <div class="pt-8">
-                        <h3 class="font-display text-lg font-bold mb-4">Focus areas</h3>
-                        <div id="focus-areas" class="flex flex-wrap gap-2"></div>
-                    </div>
+        <section class="lab section-pad" aria-labelledby="lab-title">
+            <div class="shell lab-grid">
+                <div class="reveal"><p class="section-number">05 / In the lab</p><h2 id="lab-title">Questions I am exploring now.</h2></div>
+                <div class="lab-items" id="lab-items">
+                    <article class="lab-item reveal">
+                        <span>01</span>
+                        <div><h3>AI Inventory Forecasting Concept</h3><p>An AI-focused extension concept for RyoGas, using machine learning and computer vision to support inventory forecasting and better business decisions.</p></div>
+                        <em>Exploration</em>
+                    </article>
+                    <article class="lab-item reveal">
+                        <span>02</span>
+                        <div><h3>Voice-Enabled E-Commerce App</h3><p>A mobile app concept focused on improving e-commerce accessibility through voice-enabled user interaction.</p></div>
+                        <em>Exploration</em>
+                    </article>
+                    <article class="lab-item reveal">
+                        <span>03</span>
+                        <div><h3>Mobile UX Optimization Case Study</h3><p>A UX-focused study of simpler mobile workflows for non-technical users in operational environments.</p></div>
+                        <em>Exploration</em>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="skills" class="py-32 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-                    Expertise
+        <section class="contact section-pad" id="contact" aria-labelledby="contact-title">
+            <div class="shell contact-grid">
+                <div class="contact-copy reveal">
+                    <p class="section-number light">06 / Contact</p>
+                    <h2 id="contact-title">Looking for a builder who understands the system behind the screen?</h2>
+                    <p>I am open to working student roles, internships, and product collaborations in data engineering, applied AI, and financial technology.</p>
+                    <a class="contact-email" href="mailto:abirkhan88821@gmail.com">abirkhan88821@gmail.com <span aria-hidden="true">↗</span></a>
                 </div>
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-                    Skills that span the <span class="gradient-text">full stack</span>
-                </h2>
-                <p class="text-gray-600 text-lg">
-                    From user research to automation, I bring a holistic approach to product development.
-                </p>
+                <form class="contact-form reveal" id="contact-form" action="https://formsubmit.co/abirkhan88821@gmail.com" method="post">
+                    <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="Portfolio enquiry">
+                    <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="field-row">
+                        <label><span>Name</span><input type="text" name="name" autocomplete="name" required placeholder="Your name"></label>
+                        <label><span>Email</span><input type="email" name="email" autocomplete="email" required placeholder="you@company.com"></label>
+                    </div>
+                    <label><span>What would you like to discuss?</span><textarea name="message" rows="5" required placeholder="A role, project, or idea..."></textarea></label>
+                    <button class="button button-light" type="submit">Send message<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button>
+                    <p class="form-note">Prefer email? Write directly using the address on the left.</p>
+                </form>
             </div>
+        </section>
+    </main>
 
-            <div id="skills-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="scroll-reveal group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 hidden">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-4">UI/UX Design</h3>
-                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                        Creating intuitive, accessible, and visually stunning interfaces backed by thorough user research and testing.
-                    </p>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">Figma & Design Systems</span>
-                                <span class="text-gray-500">95%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full" style="width: 0%" data-width="95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">User Research</span>
-                                <span class="text-gray-500">90%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full" style="width: 0%" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">Prototyping</span>
-                                <span class="text-gray-500">92%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full" style="width: 0%" data-width="92%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="scroll-reveal group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" style="transition-delay: 100ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-4">Software Engineering</h3>
-                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                        Building scalable, performant applications with modern frameworks and clean, maintainable code architecture.
-                    </p>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">React / Next.js / TypeScript</span>
-                                <span class="text-gray-500">94%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-accent to-indigo-600 rounded-full" style="width: 0%" data-width="94%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">Node.js / Python</span>
-                                <span class="text-gray-500">88%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-accent to-indigo-600 rounded-full" style="width: 0%" data-width="88%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">System Architecture</span>
-                                <span class="text-gray-500">85%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-accent to-indigo-600 rounded-full" style="width: 0%" data-width="85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="scroll-reveal group bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500" style="transition-delay: 200ms;">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold mb-4">Data Science</h3>
-                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
-                        Leveraging machine learning and statistical analysis to derive insights and build predictive models.
-                    </p>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">Python / Pandas / NumPy</span>
-                                <span class="text-gray-500">90%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full" style="width: 0%" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">Machine Learning</span>
-                                <span class="text-gray-500">82%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full" style="width: 0%" data-width="82%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium">Data Visualization</span>
-                                <span class="text-gray-500">88%</span>
-                            </div>
-                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full" style="width: 0%" data-width="88%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">Experience</div>
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Startup & <span class="gradient-text">leadership</span></h2>
-                <p class="text-gray-600 text-lg">Building products and teams that solve real operational problems.</p>
-            </div>
-            <div id="experience-list" class="space-y-8 max-w-4xl mx-auto"></div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-32 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-                    Portfolio
-                </div>
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-                    Selected <span class="gradient-text">works</span>
-                </h2>
-                <p class="text-gray-600 text-lg">
-                    A curated collection of projects showcasing design thinking, engineering excellence, and data-driven solutions.
-                </p>
-            </div>
-
-            <div id="project-filters" class="flex flex-wrap justify-center gap-3 mb-12 scroll-reveal" role="tablist" aria-label="Project filters"></div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-                <article class="project-card scroll-reveal group cursor-pointer" data-category="uiux">
-                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop"
-                             alt="Nova Banking Dashboard"
-                             class="w-full h-full object-cover transition-transform duration-700"
-                             loading="lazy"
-                             width="800"
-                             height="600">
-                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-sm font-medium text-white">View Case Study</span>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs font-medium rounded-full">UI/UX</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">Fintech</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">Nova Banking Dashboard</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">A complete redesign of a digital banking experience, increasing user engagement by 40% through intuitive data visualization.</p>
-                    </div>
-                </article>
-
-                <article class="project-card scroll-reveal group cursor-pointer" data-category="engineering">
-                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop"
-                             alt="SyncFlow Engine"
-                             class="w-full h-full object-cover transition-transform duration-700"
-                             loading="lazy"
-                             width="800"
-                             height="600">
-                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-sm font-medium text-white">View on GitHub</span>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Engineering</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">Open Source</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">SyncFlow Engine</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">Real-time collaborative editing engine built with CRDTs and WebRTC, powering seamless multi-user document editing.</p>
-                    </div>
-                </article>
-
-                <article class="project-card scroll-reveal group cursor-pointer" data-category="data">
-                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
-                             alt="Predicta Analytics"
-                             class="w-full h-full object-cover transition-transform duration-700"
-                             loading="lazy"
-                             width="800"
-                             height="600">
-                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-sm font-medium text-white">View Analysis</span>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Data Science</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">ML</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">Predicta Analytics</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">Customer churn prediction model with 94% accuracy, featuring an interactive dashboard for business stakeholders.</p>
-                    </div>
-                </article>
-
-                <article class="project-card scroll-reveal group cursor-pointer" data-category="uiux engineering">
-                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop"
-                             alt="HealthTrack Mobile"
-                             class="w-full h-full object-cover transition-transform duration-700"
-                             loading="lazy"
-                             width="800"
-                             height="600">
-                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-sm font-medium text-white">View Case Study</span>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs font-medium rounded-full">UI/UX</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Engineering</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">HealthTrack Mobile</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">End-to-end design and development of a health monitoring app with real-time biometric integration.</p>
-                    </div>
-                </article>
-
-                <article class="project-card scroll-reveal group cursor-pointer" data-category="engineering">
-                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                             alt="MarketHub Platform"
-                             class="w-full h-full object-cover transition-transform duration-700"
-                             loading="lazy"
-                             width="800"
-                             height="600">
-                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-sm font-medium text-white">Live Demo</span>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full">Engineering</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">E-commerce</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">MarketHub Platform</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">Headless e-commerce solution with sub-second load times and advanced inventory management.</p>
-                    </div>
-                </article>
-
-                <article class="project-card scroll-reveal group cursor-pointer" data-category="data">
-                    <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-[4/3] mb-4">
-                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop"
-                             alt="Sentiment AI"
-                             class="w-full h-full object-cover transition-transform duration-700"
-                             loading="lazy"
-                             width="800"
-                             height="600">
-                        <div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-sm font-medium text-white">View Project</span>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Data Science</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">NLP</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold group-hover:text-accent transition-colors">Sentiment AI</h3>
-                        <p class="text-gray-600 text-sm line-clamp-2">Real-time sentiment analysis pipeline processing 10k+ social media mentions daily for brand monitoring.</p>
-                    </div>
-                </article>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary rounded-full font-medium hover:bg-primary hover:text-white transition-all duration-300">
-                    Start a Project
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="writing" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-start">
-                <div class="scroll-reveal lg:sticky lg:top-28">
-                    <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-                        Writing
-                    </div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-                        Notes from building at the edge of <span class="gradient-text">product and data</span>
-                    </h2>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        A future home for practical articles on startup lessons, fuel industry automation, mobile UX, AI workflows, and data-driven business decisions.
-                    </p>
-                </div>
-
-                <div id="writing-grid" class="grid gap-6"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="py-32 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
-                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">Education</div>
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Academic <span class="gradient-text">journey</span></h2>
-                <p class="text-gray-600 text-lg">From computer science foundations to data science at FAU Erlangen-Nuremberg.</p>
-            </div>
-
-            <div id="education-grid" class="grid md:grid-cols-3 gap-8 mb-16"></div>
-
-            <div class="max-w-xl mx-auto scroll-reveal bg-surface rounded-2xl p-8 border border-gray-100">
-                <h3 class="font-display text-lg font-bold mb-4">Languages</h3>
-                <div id="languages-list"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-32 bg-primary text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20" aria-hidden="true">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="scroll-reveal">
-                    <div class="inline-block px-4 py-1.5 bg-white/10 text-accent-light text-sm font-medium rounded-full mb-4">
-                        Get in Touch
-                    </div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-                        Let's build something <span class="gradient-text">extraordinary</span> together
-                    </h2>
-                    <p id="contact-cta" class="text-gray-400 text-lg mb-6 leading-relaxed"></p>
-                    <div id="target-roles" class="flex flex-wrap gap-2 mb-8"></div>
-
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-accent-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Email</div>
-                                <a id="contact-email-link" href="mailto:abirkhan88821@gmail.com" class="font-medium hover:text-accent-light transition-colors break-all"><span id="contact-email">abirkhan88821@gmail.com</span></a>
-                                <button type="button" id="copy-email-btn" class="mt-2 text-xs text-accent-light hover:text-white transition-colors">Copy email</button>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                                <svg class="w-5 h-5 text-accent-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-400">Location</div>
-                                <div id="contact-location" class="font-medium"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4 mt-8">
-                        <a id="contact-linkedin" href="https://www.linkedin.com/in/i-am-md-abir/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="LinkedIn profile">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        </a>
-                        <a id="contact-github" href="https://github.com/abir-1621" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="GitHub profile">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="scroll-reveal">
-                    <form id="contact-form" class="space-y-6 bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10" action="https://formsubmit.co/abirkhan88821@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New message from portfolio">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="contact-name" class="block text-sm font-medium mb-2">Name</label>
-                                <input id="contact-name" name="name" type="text" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white placeholder-gray-500" placeholder="Your name" autocomplete="name">
-                            </div>
-                            <div>
-                                <label for="contact-sender-email" class="block text-sm font-medium mb-2">Your email</label>
-                                <input id="contact-sender-email" name="email" type="email" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white placeholder-gray-500" placeholder="you@example.com" autocomplete="email">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="contact-subject" class="block text-sm font-medium mb-2">Subject</label>
-                            <select id="contact-subject" name="subject" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white">
-                                <option value="" class="text-primary">Select a topic</option>
-                                <option value="Project Inquiry" class="text-primary">Project Inquiry</option>
-                                <option value="Collaboration" class="text-primary">Collaboration</option>
-                                <option value="Working Student / Internship" class="text-primary">Working Student / Internship</option>
-                                <option value="Other" class="text-primary">Other</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="contact-message" class="block text-sm font-medium mb-2">Message</label>
-                            <textarea id="contact-message" name="message" rows="5" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white placeholder-gray-500 resize-none" placeholder="Tell me about your project..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-4 bg-accent hover:bg-accent-light text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2">
-                            Send Message
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                            </svg>
-                        </button>
-                        <p class="text-xs text-gray-500 text-center">Messages are sent to abirkhan88821@gmail.com. You can also click the email above.</p>
-                        <p id="form-status" class="text-xs text-center hidden" role="status"></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-primary border-t border-white/10 py-12">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="font-display text-2xl font-bold text-white" data-logo>
-                MA<span class="text-accent">.</span>
-            </div>
-            <div id="footer-copy" class="text-gray-400 text-sm"></div>
-            <div class="flex gap-6 text-sm text-gray-400">
-                <a href="#hero" class="hover:text-white transition-colors">Back to top</a>
-            </div>
+    <footer class="site-footer">
+        <div class="shell footer-grid">
+            <a class="wordmark wordmark-light" href="#top" aria-label="Back to top"><span>MA</span><i aria-hidden="true"></i></a>
+            <p>© <span id="current-year">2026</span> Md Abir</p>
+            <a href="#top">Back to top ↑</a>
         </div>
     </footer>
 
-    <script src="js/portfolio-data.js"></script>
-    <script src="js/render.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

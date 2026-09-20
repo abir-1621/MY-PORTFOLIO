@@ -1,21 +1,29 @@
 # Portfolio Project Context
 
-This portfolio is a static single-page site with a separate article reader.
+This portfolio is a static single-page site with a separate article reader retained for future publishing. The main site uses custom CSS and vanilla JavaScript, with no runtime Tailwind dependency.
 
 ## Main Files
 
-- `index.html` contains the page shell, navigation, section containers, and base Tailwind setup.
-- `js/portfolio-data.js` is the primary content source for profile copy, focus areas, experience, projects, education, skills, articles, roles, and contact details.
-- `js/render.js` renders dynamic content from `window.portfolioData`.
-- `js/main.js` handles UI behavior such as mobile navigation, scroll reveal, filtering, copy email, and smooth scrolling.
-- `article.html` reads `js/portfolio-data.js` and displays article content based on `?slug=...`.
+- `index.html` contains the complete, crawlable homepage content, navigation, SEO metadata, and structured data.
+- `work/ryogas.html` and `work/friends-and-fund.html` are static, indexable case studies.
+- `css/styles.css` contains the complete design system, responsive layouts, and reduced-motion rules.
+- `js/portfolio-data.js` retains structured profile, project, and article data for the article reader and future tooling.
+- `js/render.js` is a retained rendering helper and is not loaded by the homepage.
+- `js/main.js` handles the mobile navigation, sticky header state, current year, and scroll reveals.
+- `article.html` reads `js/portfolio-data.js` and displays article content based on `?slug=...`; it remains `noindex` until articles are published as static pages.
 - `assets/` contains local images, profile assets, and project logos.
+- `BRAND_GUIDELINES.md` is the source of truth for personal-brand visuals and copy.
+- `brand-tokens.json` provides the same core system in a machine-readable format.
+- `AGENTS.md` directs AI and coding agents to apply the brand system.
+- `robots.txt`, `sitemap.xml`, and `llms.txt` provide crawler discovery information.
 
 ## Editing Rules
 
-- Prefer editing `js/portfolio-data.js` for content updates.
-- Prefer editing `js/render.js` only when the visual structure or available fields need to change.
-- Keep real projects above conceptual projects in the `projects` array.
+- Edit `index.html` when changing homepage copy, project cards, experience, or capabilities; the HTML is the search-crawlable source of truth.
+- Keep matching facts in `js/portfolio-data.js` aligned when they are used by articles or future tooling.
+- Add finished project pages under `work/` and link them with ordinary `<a href>` elements.
+- Add every canonical, indexable page to `sitemap.xml`. Do not add drafts or `noindex` pages.
+- Keep verified outcomes specific. Do not introduce metrics that are not supported by the source material.
 - Use local logo/image assets for real projects when available.
 - Run `node --check js/portfolio-data.js`, `node --check js/render.js`, and `node --check js/main.js` after JavaScript edits.
 

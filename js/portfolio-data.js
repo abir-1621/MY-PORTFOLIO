@@ -6,7 +6,7 @@ window.portfolioData = {
   // Put your photo at: assets/profile.jpg (or .png / .webp)
   profileImage: "assets/profile.png",
 
-  title: "Data Science Master's Student | AI/Data Engineering | LLMs | ML in Finance | Startup Co-Founder",
+  title: "Working Student, AI Automation Engineer | Data Science Master's Student | Startup Co-Founder",
 
   shortHeadline: "Engineering data and AI systems for smarter financial decisions.",
 
@@ -53,15 +53,26 @@ window.portfolioData = {
 
   experience: [
     {
+      company: "Hasso Plattner Foundation",
+      role: "Working Student, AI Automation Engineer",
+      previousRole: "Working student position",
+      location: "",
+      period: "Aug 1 – Present",
+      description:
+        "I develop digital solutions and automation for manual operational processes.",
+      highlights: [],
+      technologies: ["AI Automation"]
+    },
+    {
       company: "HiLinkz Ltd",
       role: "Co-Founder & CEO",
       previousRole: "Promoted from Lead Developer",
       location: "Dhaka, Bangladesh",
-      period: "Dec 2019 - Present",
+      period: "Dec 2019",
       description:
         "Co-founded a technology startup focused on Bangladesh's fuel industry and led the development of RyoGas, a mobile-first platform for automating gas station sales tracking and operational reporting.",
       highlights: [
-        "Spearheaded the development of RyoGas from scratch as lead developer.",
+        "Built RyoGas from scratch as lead developer.",
         "Built cross-platform mobile applications using Java, Flutter, Dart, and Firebase.",
         "Mapped manual fuel station workflows into structured digital processes for sales, reporting, and operational visibility.",
         "Explored automation opportunities similar to n8n and Zapier workflows, including API-driven notifications, recurring reports, and data handoffs between business tools.",
@@ -101,7 +112,7 @@ window.portfolioData = {
       solution:
         "Built a mobile-first system with offline-first architecture, Firebase backend support, and user-friendly workflows for fuel station operations.",
       impact: [
-        "Reduced user training time through improved UI/UX.",
+        "Reduced user training time by 30% through simpler mobile workflows.",
         "Enabled uninterrupted operations in low-connectivity environments.",
         "Helped transform a university startup idea into an operational technology company."
       ],
@@ -118,6 +129,7 @@ window.portfolioData = {
       ],
       role: "Lead Developer / Co-Founder",
       featured: true,
+      caseStudy: "/work/ryogas.html",
       link: "https://www.ryogas.com/",
       logo: "assets/ryogas-logo.svg",
       image: "assets/ryogas-logo.svg"
@@ -231,6 +243,7 @@ window.portfolioData = {
       ],
       role: "Full Stack Product Builder",
       featured: true,
+      caseStudy: "/work/friends-and-fund.html",
       link: "https://personal-finance-tau-five.vercel.app/dashboard",
       logo: "assets/friends-fund-logo.svg",
       image: "assets/friends-fund-logo.svg"

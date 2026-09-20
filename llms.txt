@@ -1,0 +1,23 @@
+# Md Abir
+
+> Portfolio of Md Abir, a data and AI engineer and product builder based in Erlangen, Germany. His work covers data engineering, applied AI, LLM applications, workflow automation, financial technology, and software for real operating environments.
+
+## Profile
+
+- [Portfolio](https://abirkhan.pro.bd/): Experience, capabilities, education, selected projects, and contact details.
+- [GitHub](https://github.com/abir-1621): Public code and repositories.
+- [LinkedIn](https://www.linkedin.com/in/i-am-md-abir/): Professional profile and activity.
+
+## Selected work
+
+- [RyoGas case study](https://abirkhan.pro.bd/work/ryogas): An offline-first fuel station sales and reporting platform built for low-connectivity operations in Bangladesh.
+- [Friends and Fund case study](https://abirkhan.pro.bd/work/friends-and-fund): A role-based savings and deposit platform built with Next.js, TypeScript, Supabase Auth, PostgreSQL, and Row Level Security.
+
+## Personal brand system
+
+- [Brand guidelines](https://abirkhan.pro.bd/BRAND_GUIDELINES.md): Visual identity, social-card templates, imagery, writing style, and quality checks for work representing Md Abir.
+- [Brand tokens](https://abirkhan.pro.bd/brand-tokens.json): Machine-readable colors, typography, shapes, layout, and social canvas sizes.
+
+## Contact
+
+- Email: abirkhan88821@gmail.com
