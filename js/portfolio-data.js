@@ -447,7 +447,8 @@ window.portfolioData = {
   contactCTA:
     "I am open to working student roles, internships, and collaboration opportunities in AI/Data Engineering, machine learning in finance, LLM applications, workflow automation, and business intelligence.",
 
-  resumeButtonText: "Download Resume",
+  resumeButtonText: "Download Resume (PDF)",
+  resumeUrl: "/assets/resume/MD_Abir_Resume.pdf",
   projectsButtonText: "View Projects",
   contactButtonText: "Contact Me",
 
